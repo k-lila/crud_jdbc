@@ -1,18 +1,17 @@
-## Getting Started
+CRUD com Java + JDBC
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+---
 
-## Folder Structure
+No diretório raiz, execute:
 
-The workspace contains two folders by default, where:
+1. Inicie container do banco de dados:
+   docker compose up -d
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+2. Insira as tabelas no banco de dados:
+   docker exec -i postgres-db psql -U postgres -d database_test < query.sql
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+3. Instale as dependências:
+   mvn install
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+4. Confira os testes:
+   mvn test
